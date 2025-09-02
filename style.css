@@ -1,0 +1,398 @@
+/* Reset default margins and paddings */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Typography and base styles */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color:white;
+  background-color: #1f242d;
+  overflow-x:hidden;
+}
+
+
+.container {
+  display: flex;
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: justify;
+}
+
+/* Header */
+header {
+  /* background-color: #335c67; */
+  color: #fff;
+  padding: 20px 0;
+}
+
+.logo {
+  font-size: 30px;
+  color: #0ef;
+}
+
+nav {
+  position: relative;
+  height: 50px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav a {
+  position: relative;
+  display: inline-block;
+  font-size: 1em;
+  color: white;
+  text-decoration: none;
+  padding: 0 23px;
+  z-index: 1;
+}
+
+
+span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 90px;
+  height: 90%;
+  background: linear-gradient(45deg, #84f3db, rgb(56, 223, 235));
+  border-radius: 8px;
+  transition: .5s ease;
+}
+
+nav a:nth-child(1):hover~span {
+  left: 0;
+}
+
+nav a:nth-child(2):hover~span  {
+  left: 90px;
+}
+
+nav a:nth-child(3):hover~span {
+  left: 180px;
+}
+
+nav a:nth-child(4):hover~span {
+  left: 270px;
+}
+nav a:nth-child(5):hover~span {
+  left: 370px;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h2{
+  text-align: center;
+  color: #0ef;
+}
+h3{
+  color: #0ef;
+}
+
+/* Hero Section */
+.hero {
+  /* background-color:#4a5759; */
+  /* color: white; */
+  padding: 60px 0;
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.hero-text {
+  flex: 1 1 100px;
+}
+
+.hero-image {
+  flex: 1 1 200px;
+  text-align: center;
+}
+
+.hero-image img {
+  width: 320px;
+  height: 350px;
+  border-radius: 50%;
+  box-shadow: 0 0 15px #0ef;
+  transition: .5s ease;
+  
+}
+
+.hero-image img:hover {
+  cursor: pointer;
+  transform: scale(1.01);
+  box-shadow: 0 0 35px #0ef;
+}
+.social-media a {
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 10px 20px 0px ;
+  background: transparent;
+  border: 2px solid #0ef;
+  border-radius: 50%;
+  font-size: 20px;
+  color: #0ef;
+  text-decoration: none;
+  transition: .5s ease;
+}
+.social-media a:hover{
+  background: #0ef;
+  color: #1f242d;
+  box-shadow: 0 0 20px #0ef;
+  transform: scale(1.03);
+}
+.btn {
+  display: inline-block;
+  padding: 10px 24px;
+  background: #0ef;
+  border-radius: 40px;
+  text-decoration: none;
+  transition: .5s ease;
+  font-weight: 600;
+}
+.btn:hover {
+  box-shadow: 0 0 15px #0ef;
+  transform: scale(1.03);
+}
+.img{
+  padding: 20px 70px 0 0;
+}
+.img-about {
+  margin-top: 40px;
+  width: 320px;
+  height: 350px;
+  border-radius: 50%;
+  box-shadow: 0 0 15px #0ef;
+}
+/* About Section */
+.about,
+.projects {
+  padding: 60px 0;
+}
+/* Skills */
+.skills{
+  margin-top: 25px;
+}
+.skills h2{
+  margin-bottom: 2em;
+}
+.main-skills {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  grid-row-gap: 30px;
+  grid-column-gap:50px ;
+}
+.skill-bar {
+  margin-bottom: 2.3em;
+}
+.main-skills h3{
+  margin-bottom: 2em;
+  text-align: center;
+  color: white;
+}
+.left {
+  margin-left: 20px;
+}
+.right{
+  margin-right: 20px;
+}
+.left .skill-bar .info{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+.left .skill-bar .bar {
+  width: 100%;
+  height: 10px;
+  background-color: black;
+  border-radius: 25px;
+  margin-top: 10px;
+  position: relative;
+}
+.right .skill-bar .info{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+.right .skill-bar .bar {
+  width: 100%;
+  height: 10px;
+  background-color: black;
+  border-radius: 25px;
+  margin-top: 10px;
+  position: relative;
+}
+
+
+.skill-bar .bar p{
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  background-color: #0ef;
+  border-radius: 25px;
+  box-shadow: 0 0 10px #0ef ;
+}
+.skill-bar .bar .html {
+  width: 95%;
+  animation: html 2s;
+}
+.skill-bar .bar .css{
+  width: 85%;
+  animation: css 3s;
+}
+.skill-bar .bar .javascript{
+  width: 70%;
+  animation: javascript 4s;
+}
+.skill-bar .bar .bootstrap{
+  width: 80%;
+  animation: bootstrap 5s;
+}
+.skill-bar .bar .chrome-devtools {
+  width: 65%;
+  animation: chrome-devtools 6s;
+}
+.skill-bar .bar .vs-code{
+  width: 87%;
+  animation: vs-code 4s;
+}
+.skill-bar .bar .dom-manipulation{
+  width: 65%;
+  animation:dom-manipulation 6s;
+}
+.skill-bar .bar .web-design{
+  width: 82%;
+  animation: web-design 6s;
+}
+
+
+
+/* Footer */
+footer {
+  background-color: #1f242d;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 40px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+
+  header .container {
+    flex-direction: column;
+  }
+  .container{
+    flex-direction: column;
+    text-align: center;
+  }
+  .skills {
+    flex-direction: column;
+    text-align: center;
+  }
+} 
+
+@media (max-width: 480px) {
+  .hero-text h2 {
+    font-size: 24px;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+}
+
+@keyframes html{
+  0%{
+    width: 0%;
+  }
+  100%{
+    width: 95%;
+  } 
+}
+@keyframes css{
+  0%{
+    width: 0%;
+  }
+  100%{
+    width: 85%;
+  } 
+}
+@keyframes javascript{
+  0%{
+    width: 0%;
+  }
+  100%{
+    width: 70%;
+  } 
+}
+@keyframes bootstrap{
+  0%{
+    width: 0%;
+  }
+  100%{
+    width: 80%;
+  } 
+}
+@keyframes chrome-devtools{
+  0%{
+    width: 0%;
+  }
+  100%{
+    width: 65%;
+  } 
+}
+@keyframes vs-code{
+  0%{
+    width: 0%;
+  }
+  100%{
+    width: 87%;
+  } 
+}
+@keyframes dom-manipulation{
+  0%{
+    width: 0%;
+  }
+  100%{
+    width: 65%;
+  } 
+}
+@keyframes web-design{
+  0%{
+    width: 0%;
+  }
+  100%{
+    width: 82%;
+  } 
+}
