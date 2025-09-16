@@ -5,30 +5,36 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/lib/fontawesome-free-6.5.1-web/css/all.min.css">
 </head>
 
 <body>
-
+  <a href="#top" class="goto-top">
+    <i class="fa fa-arrow-up"></i>
+  </a>
   <!-- Header -->
   <header>
     <div class="container">
       <h1 class="logo">Ahmad Junaid Raza</h1>
-      <nav>
-        <a href="#home">Home</a>
+      <div class="menu-toggle" id="mobile-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <nav id="nav">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
-        <a href="#contact ">Contact</a>
-        <span></span>
+        <a href="#contact">Contact</a>
+        <span1></span1>
       </nav>
     </div>
   </header>
 
   <!-- Hero Section -->
-
   <section id="home" class="hero">
     <div class="container hero-content">
       <div class="hero-text" data-aos="fade-up" data-aos-duration="2000">
@@ -50,7 +56,7 @@
         </div>
       </div>
       <div class="hero-image" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1200">
-        <img src="/image1.PNG" alt="Profile Picture" />
+        <img src="/images/image1.PNG" alt="Profile Picture" />
       </div>
     </div>
   </section>
@@ -59,7 +65,7 @@
   <section id="about" class="about">
     <div class="container">
       <div class="img" data-aos="fade-right" data-aos-duration="1200">
-        <img src="/image1.PNG" alt="" class="img-about">
+        <img src="/images/image1.PNG" alt="" class="img-about">
       </div>
       <div>
         <h2 data-aos="zoom-in" data-aos-duration="1200">About Me</h2><br>
@@ -87,116 +93,204 @@
         <div data-aos="zoom-in" data-aos-duration="1200">
           <a href="#" class="btn">Read More</a>
         </div>
-
       </div>
     </div>
-
   </section>
+
+  <!-- Skills Section -->
   <section class="skills" id="skills">
     <h2 data-aos="zoom-in" data-aos-duration="1200">Professional Skills</h2>
     <div class="main-skills">
-        <div class="left">
-          <div class="skill-bar">
-            <div class="info">
-              <p>HTML5</p>
-              <p>95%</p>
-            </div>
-            <div class="bar">
-              <p class="html"></p>
-            </div>
+      <div class="left">
+        <div class="skill-bar">
+          <div class="info">
+            <p>HTML5</p>
+            <p>95%</p>
           </div>
-          <div class="skill-bar">
-            <div class="info">
-              <p>CSS</p>
-              <p>85%</p>
-            </div>
-            <div class="bar">
-              <p class="css"></p>
-            </div>
-          </div>
-          <div class="skill-bar">
-            <div class="info">
-              <p>Javascript</p>
-              <p>70%</p>
-            </div>
-            <div class="bar">
-              <p class="javascript"></p>
-            </div>
-          </div>
-          <div class="skill-bar">
-            <div class="info">
-              <p>BootStrap 5</p>
-              <p>80%</p>
-            </div>
-            <div class="bar">
-              <p class="bootstrap"></p>
-            </div>
+          <div class="bar">
+            <p class="html"></p>
           </div>
         </div>
-          
+        <div class="skill-bar">
+          <div class="info">
+            <p>CSS</p>
+            <p>85%</p>
+          </div>
+          <div class="bar">
+            <p class="css"></p>
+          </div>
+        </div>
+        <div class="skill-bar">
+          <div class="info">
+            <p>Javascript</p>
+            <p>70%</p>
+          </div>
+          <div class="bar">
+            <p class="javascript"></p>
+          </div>
+        </div>
+        <div class="skill-bar">
+          <div class="info">
+            <p>BootStrap 5</p>
+            <p>80%</p>
+          </div>
+          <div class="bar">
+            <p class="bootstrap"></p>
+          </div>
+        </div>
+      </div>
 
 
-          <div class="right">
-            <div class="skill-bar">
-            <div class="info">
-              <p>Chrome Devtools</p>
-              <p>65%</p>
-            </div>
-            <div class="bar">
-              <p class="chrome-devtools"></p>
-            </div>
+
+      <div class="right">
+        <div class="skill-bar">
+          <div class="info">
+            <p>Chrome Devtools</p>
+            <p>65%</p>
           </div>
-          <div class="skill-bar">
-            <div class="info">
-              <p>VS Code</p>
-              <p>87%</p>
-            </div>
-            <div class="bar">
-              <p class="vs-code"></p>
-            </div>
+          <div class="bar">
+            <p class="chrome-devtools"></p>
           </div>
-            <div class="skill-bar">
-              <div class="info">
-                <p>DOM Manipulation</p>
-                <p>65%</p>
-              </div>
-              <div class="bar">
-                <p class="dom-manipulation"></p>
-              </div>
-            </div>
-            <div class="skill-bar">
-              <div class="info">
-                <p>Responsive Web Design</p>
-                <p>82%</p>
-              </div>
-              <div class="bar">
-                <p class="web-design"></p>
-              </div>
-            </div>
+        </div>
+        <div class="skill-bar">
+          <div class="info">
+            <p>VS Code</p>
+            <p>87%</p>
           </div>
-        
+          <div class="bar">
+            <p class="vs-code"></p>
+          </div>
+        </div>
+        <div class="skill-bar">
+          <div class="info">
+            <p>DOM Manipulation</p>
+            <p>65%</p>
+          </div>
+          <div class="bar">
+            <p class="dom-manipulation"></p>
+          </div>
+        </div>
+        <div class="skill-bar">
+          <div class="info">
+            <p>Responsive Web Design</p>
+            <p>82%</p>
+          </div>
+          <div class="bar">
+            <p class="web-design"></p>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
   <!-- Projects Section -->
-
   <section id="projects" class="projects">
-    <div class="container-2" data-aos="zoom-in" data-aos-duration="1200">
-      <h2>Projects</h2>
-      <p style="text-align: center;">Project cards will be added here soon.</p>
+    <div class="container-2">
+      <h2 data-aos="zoom-in" data-aos-duration="1200">My Projects</h2>
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <div class="project-card" data-aos="fade-up" data-aos-duration="1200" data-project="1">
+          <div class="project-image">
+            <img src="/images/shoe1-3.jpg" alt="E-Commerce Website" />
+            <div class="project-overlay">
+              <h3>E-Commerce Website</h3>
+              <p>Click to view details</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200" data-project="2">
+          <div class="project-image">
+            <img src="/images/Crispy-1300x600-d59bb43-sabroso.jpg" alt="Restaurant Website" />
+            <div class="project-overlay">
+              <h3>Sabroso Website</h3>
+              <p>Click to view details</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400" data-project="3">
+          <div class="project-image">
+            <img src="/images/about.jpg" alt="Portfolio Website" />
+            <div class="project-overlay">
+              <h3>Portfolio Website</h3>
+              <p>Click to view details</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="project-card" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="600" data-project="4">
+          <div class="project-image">
+            <img src="/images/coffee-hero-section.png" alt="Task Management App" />
+            <div class="project-overlay">
+              <h3>Coffee Website</h3>
+              <p>Click to view details</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 5 -->
+        <div class="project-card" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="800" data-project="5">
+          <div class="project-image">
+            <img src="/images/lawn-3.webp" alt="Weather App" />
+            <div class="project-overlay">
+              <h3>LimeLight Website</h3>
+              <p>Click to view details</p>
+            </div>
+          </div>
+        </div>
+        <!-- project 6 -->
+
+        <div class="project-card" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="600" data-project="6">
+          <div class="project-image">
+            <img src="/images/bg_banner3.jpg" alt="Task Management App" />
+            <div class="project-overlay">
+              <h3>Prixima Website</h3>
+              <p>Click to view details</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project Modal -->
+    <div class="project-modal" id="projectModal">
+      <div class="modal-content">
+        <span class="close" id="closeModal">&times;</span>
+        <div class="modal-body">
+          <div class="modal-image">
+            <img id="modalImg" src="" alt="Project Image" />
+          </div>
+          <div class="modal-info">
+            <h2 id="modalTitle"></h2>
+            <p id="modalDescription"></p>
+            <div class="tech-stack">
+              <h3>Technologies Used:</h3>
+              <div id="modalTech"></div>
+            </div>
+            <div class="project-links">
+              <!-- <a href="#" id="liveDemo" class="btn" target="_blank">Live Demo</a> -->
+              <a href="#" id="sourceCode" class="btn btn-secondary" target="_blank">Source Code</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer>
     <div class="container-2" id="contact">
+      <h2 data-aos="zoom-in" data-aos-duration="1200">Contact</h2>
       <p>&copy; 2025 Ahmad Junaid Raza. All rights reserved.</p>
-      <p>Email : ahmadjunaidraza1@gmail.com</p>
-      <p>Contact : +92 321 6973655</p>
-
+      <p><i class="fa fa-envelope"></i> : ahmadjunaidraza1@gmail.com</p>
+      <p><i class="fa fa-phone"></i> : +92 321 6973655</p>
     </div>
   </footer>
-
 
   <script src="/script.js"></script>
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
@@ -206,5 +300,3 @@
 </body>
 
 </html>
-
-      
