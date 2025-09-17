@@ -188,72 +188,14 @@
   <section id="projects" class="projects">
     <div class="container-2">
       <h2 data-aos="zoom-in" data-aos-duration="1200">My Projects</h2>
-      <div class="projects-grid">
-        <!-- Project 1 -->
-        <div class="project-card" data-aos="fade-up" data-aos-duration="1200" data-project="1">
-          <div class="project-image">
-            <img src="/images/shoe1-3.jpg" alt="E-Commerce Website" />
-            <div class="project-overlay">
-              <h3>E-Commerce Website</h3>
-              <p>Click to view details</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 2 -->
-        <div class="project-card" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200" data-project="2">
-          <div class="project-image">
-            <img src="/images/Crispy-1300x600-d59bb43-sabroso.jpg" alt="Restaurant Website" />
-            <div class="project-overlay">
-              <h3>Sabroso Website</h3>
-              <p>Click to view details</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 3 -->
-        <div class="project-card" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400" data-project="3">
-          <div class="project-image">
-            <img src="/images/about.jpg" alt="Portfolio Website" />
-            <div class="project-overlay">
-              <h3>Portfolio Website</h3>
-              <p>Click to view details</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 4 -->
-        <div class="project-card" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="600" data-project="4">
-          <div class="project-image">
-            <img src="/images/coffee-hero-section.png" alt="Task Management App" />
-            <div class="project-overlay">
-              <h3>Coffee Website</h3>
-              <p>Click to view details</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 5 -->
-        <div class="project-card" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="800" data-project="5">
-          <div class="project-image">
-            <img src="/images/lawn-3.webp" alt="Weather App" />
-            <div class="project-overlay">
-              <h3>LimeLight Website</h3>
-              <p>Click to view details</p>
-            </div>
-          </div>
-        </div>
-        <!-- project 6 -->
-
-        <div class="project-card" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="600" data-project="6">
-          <div class="project-image">
-            <img src="/images/bg_banner3.jpg" alt="Task Management App" />
-            <div class="project-overlay">
-              <h3>Prixima Website</h3>
-              <p>Click to view details</p>
-            </div>
-          </div>
-        </div>
+      <div class="filter-bar" aria-label="Project filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="Websites">Websites</button>
+        <button class="filter-btn" data-filter="Designs">Designs</button>
+        <button class="filter-btn" data-filter="Mini Apps">Mini Apps</button>
+      </div>
+      <div class="projects-grid" id="projectsGrid">
+        <!-- Cards will be injected dynamically by script.js -->
       </div>
     </div>
 

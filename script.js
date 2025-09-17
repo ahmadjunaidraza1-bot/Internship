@@ -28,96 +28,159 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-// Project data
-const projectsData = {
-  1: {
+// Project data (array) with categories for filtering
+const projects = [
+  {
+    id: 1,
     title: "E-Commerce Website",
-    description: "A fully responsive e-commerce website built with modern web technologies. Features include product catalog, shopping cart, user authentication, and secure payment processing. The website provides an intuitive shopping experience with advanced filtering, search functionality, and mobile-first design.",
+    description: "Responsive shop with catalog, cart, auth, and payments.",
     image: "/images/shoe1-3.jpg",
-    technologies: ["HTML5", "CSS3", "JavaScript", "Bootstrap 5","Full-Responsive"],
-    liveDemo: "#",
-    sourceCode: "#"
+    technologies: ["HTML5", "CSS3", "JavaScript", "Bootstrap 5", "Responsive"],
+    sourceCode: "#",
+    category: "Websites"
   },
-  2: {
+  {
+    id: 2,
     title: "Sabroso Website",
-    description: "An elegant restaurant website showcasing menu items, reservation system, and online ordering capabilities. The design focuses on visual appeal with high-quality food photography and smooth animations. Features include interactive menu, contact forms, and social media integration.",
+    description: "Restaurant landing with interactive menu and smooth animations.",
     image: "/images/Crispy-1300x600-d59bb43-sabroso.jpg",
-    technologies: ["HTML5", "CSS3", "JavaScript", "Bootstrap 5","Full-Responsive"],
-    liveDemo: "#",
-    sourceCode: "#"
+    technologies: ["HTML5", "CSS3", "JavaScript", "Bootstrap 5", "Responsive"],
+    sourceCode: "#",
+    category: "Websites"
   },
-  3: {
+  {
+    id: 3,
     title: "Portfolio Website",
-    description: "A personal portfolio website designed to showcase professional work and skills. Features include animated skill bars, project galleries, contact forms, and responsive design. The website demonstrates proficiency in frontend development with clean, modern aesthetics.",
+    description: "Personal portfolio showcasing skills and projects.",
     image: "/images/about.jpg",
-    technologies: ["HTML5", "CSS3", "JavaScript", "AOS Animation", "Font Awesome"],
-    liveDemo: "#",
-    sourceCode: "#"
+    technologies: ["HTML5", "CSS3", "JavaScript", "AOS"],
+    sourceCode: "#",
+    category: "Designs"
   },
-  4: {
+  {
+    id: 4,
     title: "Coffee Website",
-    description: "A comprehensive task management application with drag-and-drop functionality, priority settings, and deadline tracking. Users can create projects, assign tasks, set reminders, and collaborate with team members. Features include data persistence and real-time updates.",
+    description: "Coffee brand site with engaging hero and sections.",
     image: "/images/coffee-hero-section.png",
-    technologies: ["HTML5", "CSS3", "JavaScript", "DOM Manipulation","Full-Responsive"],
-    liveDemo: "#",
-    sourceCode: "#"
+    technologies: ["HTML5", "CSS3", "JavaScript"],
+    sourceCode: "#",
+    category: "Websites"
   },
-  5: {
+  {
+    id: 5,
     title: "LimeLight Website",
-    description: "A real-time weather application that provides current weather conditions, forecasts, and location-based weather data. Features include geolocation services, weather maps, and customizable themes. The app fetches data from weather APIs and displays information in an intuitive interface.",
+    description: "Gardening services site with responsive gallery.",
     image: "/images/lawn-3.webp",
     technologies: ["HTML5", "CSS3", "Font Awesome"],
-    liveDemo: "#",
-    sourceCode: "#"
+    sourceCode: "#",
+    category: "Designs"
   },
-  6: {
+  {
+    id: 6,
     title: "Prixima Website",
-    description: "A real-time weather application that provides current weather conditions, forecasts, and location-based weather data. Features include geolocation services, weather maps, and customizable themes. The app fetches data from weather APIs and displays information in an intuitive interface.",
+    description: "Agency template with modern UI blocks.",
     image: "/images/bg_banner3.jpg",
     technologies: ["HTML5", "CSS3","Font Awesome"],
-    liveDemo: "#",
-    sourceCode: "#"
+    sourceCode: "#",
+    category: "Mini Apps"
   }
-};
+];
+
+const idToProject = Object.fromEntries(projects.map(p => [String(p.id), p]));
+
+// Render projects dynamically
+const projectsGrid = document.getElementById('projectsGrid');
+
+function createProjectCard(project, index) {
+  const card = document.createElement('div');
+  card.className = 'project-card';
+  card.setAttribute('data-project', String(project.id));
+  card.setAttribute('data-category', project.category);
+  card.setAttribute('data-aos', 'fade-up');
+  card.setAttribute('data-aos-duration', '1200');
+  if (index) {
+    card.setAttribute('data-aos-delay', String(index * 200));
+  }
+
+  const imageWrapper = document.createElement('div');
+  imageWrapper.className = 'project-image';
+
+  const img = document.createElement('img');
+  img.src = project.image;
+  img.alt = project.title;
+
+  const overlay = document.createElement('div');
+  overlay.className = 'project-overlay';
+
+  const title = document.createElement('h3');
+  title.textContent = project.title;
+
+  const info = document.createElement('p');
+  info.textContent = 'Click to view details';
+
+  const small = document.createElement('p');
+  small.style.opacity = '0.9';
+  small.style.marginTop = '6px';
+  small.textContent = `${project.category} • ${project.technologies.slice(0, 2).join(', ')}`;
+
+  overlay.appendChild(title);
+  overlay.appendChild(info);
+  overlay.appendChild(small);
+
+  imageWrapper.appendChild(img);
+  imageWrapper.appendChild(overlay);
+  card.appendChild(imageWrapper);
+  return card;
+}
+
+function renderProjects(filter = 'all') {
+  if (!projectsGrid) return;
+  projectsGrid.innerHTML = '';
+  const list = filter === 'all' ? projects : projects.filter(p => p.category === filter);
+  list.forEach((project, idx) => {
+    const card = createProjectCard(project, idx);
+    projectsGrid.appendChild(card);
+  });
+  if (window.AOS && typeof window.AOS.refresh === 'function') {
+    window.AOS.refresh();
+  }
+}
+
+renderProjects('all');
 
 // Project modal functionality
 const projectModal = document.getElementById('projectModal');
 const closeModal = document.getElementById('closeModal');
-const projectCards = document.querySelectorAll('.project-card');
 
-// Open modal when project card is clicked
-projectCards.forEach(card => {
-  card.addEventListener('click', () => {
+// Open modal using event delegation on the grid
+if (projectsGrid) {
+  projectsGrid.addEventListener('click', (e) => {
+    const card = e.target.closest('.project-card');
+    if (!card) return;
     const projectId = card.getAttribute('data-project');
-    const project = projectsData[projectId];
-    
-    if (project) {
-      // Update modal content
-      document.getElementById('modalImg').src = project.image;
-      document.getElementById('modalImg').alt = project.title;
-      document.getElementById('modalTitle').textContent = project.title;
-      document.getElementById('modalDescription').textContent = project.description;
-      
-      // Update technologies
-      const techContainer = document.getElementById('modalTech');
-      techContainer.innerHTML = '';
-      project.technologies.forEach(tech => {
-        const techTag = document.createElement('span');
-        techTag.className = 'tech-tag';
-        techTag.textContent = tech;
-        techContainer.appendChild(techTag);
-      });
-      
-      // Update links
-      // document.getElementById('liveDemo').href = project.liveDemo;
-      document.getElementById('sourceCode').href = project.sourceCode;
-      
-      // Show modal
-      projectModal.style.display = 'block';
-      document.body.style.overflow = 'hidden'; // Prevent background scrolling
-    }
+    const project = idToProject[projectId];
+    if (!project) return;
+
+    document.getElementById('modalImg').src = project.image;
+    document.getElementById('modalImg').alt = project.title;
+    document.getElementById('modalTitle').textContent = project.title;
+    document.getElementById('modalDescription').textContent = project.description;
+
+    const techContainer = document.getElementById('modalTech');
+    techContainer.innerHTML = '';
+    project.technologies.forEach(tech => {
+      const techTag = document.createElement('span');
+      techTag.className = 'tech-tag';
+      techTag.textContent = tech;
+      techContainer.appendChild(techTag);
+    });
+
+    document.getElementById('sourceCode').href = project.sourceCode;
+
+    projectModal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
   });
-});
+}
 
 // Close modal functionality
 closeModal.addEventListener('click', () => {
@@ -140,3 +203,16 @@ document.addEventListener('keydown', (e) => {
     document.body.style.overflow = 'auto';
   }
 });
+
+// Filtering logic
+const filterContainer = document.querySelector('.filter-bar');
+if (filterContainer) {
+  filterContainer.addEventListener('click', (e) => {
+    const btn = e.target.closest('.filter-btn');
+    if (!btn) return;
+    const filter = btn.getAttribute('data-filter');
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderProjects(filter);
+  });
+}
